@@ -1,0 +1,17 @@
+{
+  "name": "rerank-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "dependencies": {
+    "@azure/cosmos": "azure-cosmos-4.9.2.tgz",
+    "@azure/identity": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "~5.7.0"
+  }
+}
