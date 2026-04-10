@@ -7,10 +7,9 @@ A TypeScript sample that demonstrates how to use the **Semantic Rerank** feature
 1. Connects to an Azure Cosmos DB account using Azure AD authentication
 2. Upserts sample fitness product documents into a container
 3. Runs a **Full-Text Search** (FTS) query using `FullTextContains` and `FullTextScore`
-4. Runs a standard query as a fallback comparison
-5. Sends the query results to the **Semantic Reranker** — an AI-powered service that scores each document by relevance to a natural language query
-6. Prints the reranked results with scores
-7. Cleans up the inserted documents
+4. Sends the FTS results to the **Semantic Reranker** — an AI-powered service that scores each document by relevance to a natural language query
+5. Prints the reranked results with scores
+6. Cleans up the inserted documents
 
 ## Prerequisites
 
@@ -74,9 +73,6 @@ Running FTS query: FullTextContains(c.description, 'gym') OR 'pulley'...
   ✓ FTS returned 2 results:
     - [sr-5] BudgetFlex Home Gym
     - [sr-2] FlexForce Cable Machine
-
-Running standard query: WHERE c.category = 'fitness'...
-  ✓ Standard query returned 5 results
 
 Reranking 2 documents...
   Query: "most economical with multiple pulley adjustments ideal for home gyms"

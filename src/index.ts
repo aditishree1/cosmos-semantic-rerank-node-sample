@@ -109,28 +109,16 @@ async function main(): Promise<void> {
       console.log(`    - [${r.id}] ${r.name}`);
     }
 
-    // 5. Also run a standard query as fallback/comparison
-    console.log("\nRunning standard query: WHERE c.category = 'fitness'...");
-    const { resources: stdResults } = await container.items
-      .query<Pick<SampleItem, "id" | "name" | "description">>(
-        "SELECT c.id, c.name, c.description FROM c WHERE c.category = 'fitness'",
-      )
-      .fetchAll();
-
-    console.log(`  ✓ Standard query returned ${stdResults.length} results\n`);
-
-    // 6. Rerank whichever results we got (prefer FTS, fallback to standard)
-    const docsToRerank: string[] = (ftsResults.length > 0 ? ftsResults : stdResults).map(
-      (item) => JSON.stringify(item),
-    );
+    // 5. Rerank the FTS results
+    const documents: string[] = ftsResults.map((item) => JSON.stringify(item));
 
     const rerankContext = "most economical with multiple pulley adjustments ideal for home gyms";
-    console.log(`Reranking ${docsToRerank.length} documents...`);
+    console.log(`\nReranking ${documents.length} documents...`);
     console.log(`  Query: "${rerankContext}"\n`);
 
     const result: SemanticRerankResult = await container.semanticRerank(
       rerankContext,
-      docsToRerank,
+      documents,
       {
         returnDocuments: true,
         topK: 10,
@@ -138,7 +126,7 @@ async function main(): Promise<void> {
       },
     );
 
-    // 7. Print results
+    // 6. Print results
     console.log("=== Rerank Results ===");
     console.log(`  Scores: ${result.rerankScores.length}`);
     console.log(`  Latency: ${JSON.stringify(result.latency)}`);
