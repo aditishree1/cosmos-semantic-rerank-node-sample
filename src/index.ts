@@ -8,17 +8,17 @@
  *   - AZURE_TENANT_ID set if needed for DefaultAzureCredential.
  *
  * Usage:
- *   set AZURE_TENANT_ID=b5a53dd4-9da5-494f-adab-d04a5754fc6f
+ *   set AZURE_TENANT_ID=<your-tenant-id>
  *   npm start
  */
 
 import { CosmosClient, type SemanticRerankResult } from "@azure/cosmos";
 import { DefaultAzureCredential } from "@azure/identity";
 
-const ACCOUNT_ENDPOINT = "https://semantic-reranker-test.documents.azure.com:443/";
-const INFERENCE_ENDPOINT = "https://semantic-reranker-test.eastus2.dbinference.azure.com";
-const DATABASE_NAME = "rerank-test";
-const CONTAINER_NAME = "products";
+const ACCOUNT_ENDPOINT = "https://<your-account>.documents.azure.com:443/";
+const INFERENCE_ENDPOINT = "https://<your-account>.<region>.dbinference.azure.com";
+const DATABASE_NAME = "<your-database>";
+const CONTAINER_NAME = "<your-container>";
 
 interface SampleItem {
   id: string;

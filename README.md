@@ -26,7 +26,7 @@ A TypeScript sample that demonstrates how to use the **Semantic Rerank** feature
 1. **Clone this repo**
 
    ```bash
-   git clone https://github.com/adlnu/cosmos-semantic-rerank-node-sample.git
+   git clone https://github.com/aditishree1/cosmos-semantic-rerank-node-sample.git
    cd cosmos-semantic-rerank-node-sample
    ```
 
