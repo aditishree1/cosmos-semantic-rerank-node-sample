@@ -45,7 +45,7 @@ A TypeScript sample that demonstrates how to use the **Semantic Rerank** feature
    const CONTAINER_NAME = "your-container";
    ```
 
-4. **Set your Azure tenant ID** (if your account is in a specific tenant):
+4. **(Optional)** If your Cosmos DB account is in a non-default Azure AD tenant, set:
 
    ```bash
    # Windows

@@ -5,10 +5,9 @@
  *   - Database "rerank-test" with container "products" (partition key: /category)
  *     already exists on the Cosmos DB account.
  *   - Inference endpoint registered for the account.
- *   - AZURE_TENANT_ID set if needed for DefaultAzureCredential.
+ *   - AZURE_TENANT_ID set if your Cosmos DB account is in a non-default tenant.
  *
  * Usage:
- *   set AZURE_TENANT_ID=<your-tenant-id>
  *   npm start
  */
 
