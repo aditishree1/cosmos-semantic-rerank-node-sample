@@ -5,6 +5,7 @@
  *   - Database "rerank-test" with container "products" (partition key: /category)
  *     already exists on the Cosmos DB account.
  *   - Inference endpoint registered for the account.
+ *   - AZURE_COSMOS_SEMANTIC_RERANKER_INFERENCE_ENDPOINT env var set to the inference endpoint.
  *   - AZURE_TENANT_ID set if your Cosmos DB account is in a non-default tenant.
  *
  * Usage:
@@ -15,7 +16,6 @@ import { CosmosClient, type SemanticRerankResult } from "@azure/cosmos";
 import { DefaultAzureCredential } from "@azure/identity";
 
 const ACCOUNT_ENDPOINT = "https://<your-account>.documents.azure.com:443/";
-const INFERENCE_ENDPOINT = "https://<your-account>.<region>.dbinference.azure.com";
 const DATABASE_NAME = "<your-database>";
 const CONTAINER_NAME = "<your-container>";
 
@@ -72,7 +72,6 @@ async function main(): Promise<void> {
   const client = new CosmosClient({
     endpoint: ACCOUNT_ENDPOINT,
     aadCredentials: credential,
-    inferenceEndpoint: INFERENCE_ENDPOINT,
   });
 
   const container = client.database(DATABASE_NAME).container(CONTAINER_NAME);

@@ -39,12 +39,21 @@ A TypeScript sample that demonstrates how to use the **Semantic Rerank** feature
 
    ```typescript
    const ACCOUNT_ENDPOINT = "https://your-account.documents.azure.com:443/";
-   const INFERENCE_ENDPOINT = "https://your-account.region.dbinference.azure.com";
    const DATABASE_NAME = "your-database";
    const CONTAINER_NAME = "your-container";
    ```
 
-4. **(Optional)** If your Cosmos DB account is in a non-default Azure AD tenant, set:
+4. **Set the inference endpoint environment variable**:
+
+   ```bash
+   # Windows
+   set AZURE_COSMOS_SEMANTIC_RERANKER_INFERENCE_ENDPOINT=https://your-account.region.dbinference.azure.com
+
+   # Linux/Mac
+   export AZURE_COSMOS_SEMANTIC_RERANKER_INFERENCE_ENDPOINT=https://your-account.region.dbinference.azure.com
+   ```
+
+5. **(Optional)** If your Cosmos DB account is in a non-default Azure AD tenant, set:
 
    ```bash
    # Windows
